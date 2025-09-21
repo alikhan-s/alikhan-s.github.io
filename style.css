@@ -5,12 +5,18 @@ body {
   background-color: #f8f9fa;
   color: #222;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 /* Navigation */
 #navbar {
   background-color: #111;
   padding: 1rem;
+  position: fixed;     /* фиксируем сверху */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .nav-list {
@@ -26,16 +32,29 @@ body {
   color: #f8f9fa;
   text-decoration: none;
   font-weight: 600;
+  position: relative;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #6C63FF;
+  color: #a78bfa; /* фиолетовый hover */
+}
+
+/* Подчеркивание активного пункта */
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #a78bfa;
+  border-radius: 2px;
 }
 
 /* Sections */
 .layout-section {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 4rem; /* больше сверху, т.к. navbar fixed */
   text-align: center;
 }
 
@@ -60,10 +79,17 @@ body {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 3px solid #6C63FF;
+  border: 3px solid #a78bfa;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   margin-bottom: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+#main-image:hover {
+  transform: scale(1.05); /* чуть увеличивается */
+  box-shadow: 0 8px 20px rgba(167, 139, 250, 0.5); /* фиолетовая тень */
+}
+
 
 /* Projects */
 .project-card {
@@ -73,11 +99,12 @@ body {
   border-radius: 12px;
   max-width: 600px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(167, 139, 250, 0.4); /* фиолетовая тень */
 }
 
 .card-title {
@@ -92,6 +119,7 @@ body {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .btn-link {
@@ -108,7 +136,7 @@ body {
 }
 
 .btn-link:hover {
-  background: #6C63FF;
+  background: #a78bfa;
 }
 
 .icon {
@@ -124,3 +152,19 @@ body {
   padding: 1rem;
 }
 
+/* Адаптивность */
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #main-image {
+    margin-top: 1.5rem; /* аватарка сразу под navbar */
+  }
+  .layout-section {
+    padding: 5rem 1rem 2rem;
+  }
+}
