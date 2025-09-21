@@ -2,144 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My First Webpage</title>
+  <title>My Profile - Alikhan</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Main heading with italic style -->
-<h1>
-  <i>Serik Alikhan</i>
-</h1>
-
-<!-- Subheading with italic style and a span for gray text -->
-<h2>
-  <i>WEB Technologies 1 <span style="color: gray;">(Front End)</span></i>
-</h2>
-
-<!-- About me section -->
-<h3>About Me</h3>
-<p>Hello! My name is Alikhan. I enjoy coding, learning new technologies, and creating web applications.</p>
-
-<!-- Hobbies section with an ordered list -->
-<h3>My Hobbies</h3>
-<ol>
-  <li>Coding</li>
-  <li>Reading</li>
-  <li>Ride a bicycle</li>
-</ol>
-
-<!-- Favorite websites with links that open in new tabs -->
-<h3>My Favorite Websites</h3>
-<ul>
-  <li><a href="https://www.codingame.com" target="_blank" rel="noopener noreferrer">CodinGame</a></li>
-  <li><a href="https://www.github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-</ul>
-
-<!-- Image with alt text for accessibility -->
-<img src="mountFuji.jpg" alt="Mount Fuji at sunset" width="360">
-
-<br><br>
-<!-- Button with a JavaScript alert -->
-<button onclick="alert('Hello, welcome to my practice page!')">Click Me</button>
-
-<!-- Part 2: Layout with table (not recommended for modern design) -->
-<h3>Two-Column Layout</h3>
-<table border="0" width="100%">
-  <tr>
-    <td width="20%">
-      <h2>Menu</h2>
-    </td>
-    <td>
-      <h2>Main Content</h2>
-    </td>
-  </tr>
-  <tr>
-    <!-- Left column with navigation menu -->
-    <td valign="top">
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+  <!-- Navigation -->
+  <header id="top-banner">
+    <nav id="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-    </td>
-    <!-- Right column with content -->
-    <td>
-      <p>Welcome to my first webpage layout using tables!</p>
+    </nav>
+  </header>
 
-      <!-- Weekly schedule table -->
-      <h3>My Weekly Class Schedule</h3>
-      <table border="1" cellpadding="2">
-        <tr>
-          <th>Time</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-        </tr>
-        <tr>
-          <th>14:00 - 14:50</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Design and Analysis of Algorithms</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>15:00 - 15:50</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Design and Analysis of Algorithms</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>16:00 - 16:50</th>
-          <td></td>
-          <td>Russian Language 1</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>17:00 - 17:50</th>
-          <td></td>
-          <td>Russian Language 1</td>
-          <td></td>
-          <td>Introduction to Finance</td>
-          <td>Design and Analysis of Algorithms</td>
-        </tr>
-        <tr>
-          <th>18:00 - 18:50</th>
-          <td>Design and Analysis of Algorithms</td>
-          <td>Introduction to Finance</td>
-          <td>WEB Technologies 1 (Front End)</td>
-          <td></td>
-          <td>WEB Technologies 1 (Front End)</td>
-        </tr>
-      </table>
+  <!-- About Section -->
+  <section id="about" class="layout-section">
+    <div class="content-box">
+      <img src="images/mountFuji.jpg" alt="My Photo" id="main-image">
+      <h1 class="section-heading">Hello, I’m Alikhan 👋</h1>
+      <p class="paragraph-text">
+        I am a web developer and student learning Frontend technologies.
+        My focus is on creating modern, minimalistic websites.
+      </p>
+    </div>
+  </section>
 
-      <!-- Emoji for personal touch -->
-      <p>Today I feel 😊 excited to learn HTML, ☕ relaxed with some coffee, and 💻 ready to code!</p>
+  <!-- Projects Section -->
+  <section id="projects" class="layout-section">
+    <h2 class="section-heading">Projects</h2>
+    <div class="project-card">
+      <h3 class="card-title">Real Estate Sales System</h3>
+      <p class="paragraph-text">A web-based system for managing property sales built with Java and PostgreSQL.</p>
+    </div>
+    <div class="project-card">
+      <h3 class="card-title">Personal Portfolio</h3>
+      <p class="paragraph-text">A minimalist personal website built with HTML & CSS.</p>
+    </div>
+  </section>
 
-      <!-- Contact form with inputs -->
-      <h3>Contact Me</h3>
-      <form>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br><br>
+  <!-- Contact Section -->
+  <section id="contact" class="layout-section">
+    <h2 class="section-heading">Get in Touch</h2>
+    <p class="paragraph-text">Feel free to reach out to me on these platforms:</p>
+    <div class="social-links">
+      <a href="https://github.com/alikhan-s" target="_blank" class="btn-link">
+        <img src="images/github-logo.png" alt="GitHub" class="icon"> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/alikhan-serik-a32531376" target="_blank" class="btn-link">
+        <img src="images/linkedin-logo.png" alt="LinkedIn" class="icon"> LinkedIn
+      </a>
+    </div>
+  </section>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-
-        <label for="color">Favorite Color:</label><br>
-        <input type="color" id="color" name="color"><br><br>
-
-        <input type="submit" value="Submit">
-      </form>
-    </td>
-  </tr>
-</table>
-
+  <!-- Footer -->
+  <footer id="footer-container">
+    <p class="paragraph-text">&copy; 2025 Alikhan. Built with HTML & CSS.</p>
+  </footer>
 
 </body>
 </html>
