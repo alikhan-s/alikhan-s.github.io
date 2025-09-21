@@ -72,7 +72,7 @@
     let current = "";
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120; // учитываем высоту navbar
+      const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.clientHeight;
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         current = section.getAttribute("id");
