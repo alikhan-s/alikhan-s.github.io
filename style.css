@@ -5,9 +5,12 @@ body {
   background-color: #f8f9fa;
   color: #222;
   line-height: 1.6;
-  scroll-behavior: smooth;
 
   padding-top: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Navigation */
