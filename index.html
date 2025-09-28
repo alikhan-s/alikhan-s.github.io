@@ -3,67 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile - Alikhan</title>
+  <title>Assignment 3 - Advanced CSS</title>
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header id="top-banner">
-    <nav id="navbar">
+  <!-- ================= PART 1: FLEXBOX ================= -->
+  <!-- Task 0: Navigation Bar -->
+  <header class="header">
+    <div class="logo">MyLogo</div>
+    <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#grid-layout">Grid Layout</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- About Section -->
-  <section id="about" class="layout-section">
-    <div class="content-box">
-      <img src="images/mountFuji.jpg" alt="My Photo" id="main-image">
-      <h1 class="section-heading">Hello, I’m Alikhan 👋</h1>
-      <p class="paragraph-text">
-        I am a web developer and student learning Frontend technologies.
-        My focus is on creating modern, minimalistic websites.
-      </p>
+  <!-- Task 1: Card Row -->
+  <section id="cards" class="cards-section">
+  <h2 class="section-title">Flexbox Cards</h2>
+  <div class="card-container">
+
+    <!-- GitHub Card -->
+    <div class="card">
+      <img src="images/github-logo.png" alt="GitHub Logo">
+      <h3>GitHub</h3>
+      <p>Explore my open-source projects, code experiments, and contributions on GitHub.</p>
+      <button onclick="window.open('https://github.com/alikhan-s', '_blank')">Visit GitHub</button>
+    </div>
+
+    <!-- LinkedIn Card -->
+    <div class="card">
+      <img src="images/linkedin-logo.png" alt="LinkedIn Logo">
+      <h3>LinkedIn</h3>
+      <p>Connect with me professionally and discover my career journey on LinkedIn.</p>
+      <button onclick="window.open('https://www.linkedin.com/in/alikhan-serik-a32531376', '_blank')">Visit LinkedIn</button>
+    </div>
+
+    <!-- Instagram Card -->
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram Logo">
+      <h3>Instagram</h3>
+      <p>Follow me on Instagram.</p>
+      <button onclick="window.open('https://www.instagram.com/uk1yo_6', '_blank')">Visit Instagram</button>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ================= PART 2: GRID ================= -->
+  <!-- Task 2: Page Layout with Grid Areas -->
+  <section id="grid-layout" class="grid-layout">
+    <header class="grid-header">Header</header>
+    <aside class="grid-sidebar">Sidebar</aside>
+    <main class="grid-main">Main Content Area</main>
+    <footer class="grid-footer">Footer</footer>
+  </section>
+
+  <!-- Task 3: Image Gallery -->
+  <section id="gallery" class="gallery-section">
+    <h2 class="section-title">Image Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="https://matraxlubricants.com/wp-content/uploads/2022/07/PREVIO-DEL-GP-FRANCIA-F1-2022-848x400.jpg" alt=""><div class="caption">Image 1</div></div>
+      <div class="gallery-item"><img src="https://motorsportmagazine.b-cdn.net/wp-content/uploads/2024/02/Ferrari-vs-Red-Bull-800x450.jpg.webp" alt=""><div class="caption">Image 2</div></div>
+      <div class="gallery-item"><img src="https://www.racefans.net/wp-content/uploads/2022/08/Sunday-at-Belgian-GPXPB_1167160_HiRes.jpg" alt=""><div class="caption">Image 3</div></div>
+      <div class="gallery-item"><img src="https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2022%2F05%2F29212348%2Fferrari-and-red-bull-in-parc-ferme-after-monaco-gp-planet-f1.jpg" alt=""><div class="caption">Image 4</div></div>
+      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe5MOqNSVj-omOLz2Ox0EpAi95Hk0-N1CJ-g&s" alt=""><div class="caption">Image 5</div></div>
+      <div class="gallery-item"><img src="https://rtrsports.com/wp-content/uploads/2025/01/pexels-jonathanborba-29406740.jpg" alt=""><div class="caption">Image 6</div></div>
+      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIZuIxVLLRpyCoyu0B5VEgQSRfIsv8kmO7w&s" alt=""><div class="caption">Image 7</div></div>
+      <div class="gallery-item"><img src="https://driver61.com/wp-content/uploads/2024/10/F1-at-Nurburgring.png" alt=""><div class="caption">Image 8</div></div>
+      <div class="gallery-item"><img src="https://assets.micontenthub.com/traveloffers/travel-tips/f1-petronas_2ZCaOgFxL.jpg" alt=""><div class="caption">Image 9</div></div>
+      <div class="gallery-item"><img src="https://www.amalgamcollection.com/cdn/shop/articles/F_Blog_Post_1024x1024.jpg?v=1624277003" alt=""><div class="caption">Image 10</div></div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="layout-section">
-    <h2 class="section-heading">Projects</h2>
-    <div class="project-card">
-      <h3 class="card-title">Real Estate Sales System</h3>
-      <p class="paragraph-text">A web-based system for managing property sales built with Java and PostgreSQL.</p>
-    </div>
-    <div class="project-card">
-      <h3 class="card-title">Personal Portfolio</h3>
-      <p class="paragraph-text">A minimalist personal website built with HTML & CSS.</p>
-    </div>
-  </section>
+  <!-- ================= PART 3: FLEX + GRID ================= -->
+  <!-- Task 4: Portfolio Page -->
+  <section id="portfolio" class="portfolio">
+    <header class="portfolio-header">
+      <div class="logo">Portfolio</div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- Contact Section -->
-  <section id="contact" class="layout-section">
-    <h2 class="section-heading">Get in Touch</h2>
-    <p class="paragraph-text">Feel free to reach out to me on these platforms:</p>
-    <div class="social-links">
-      <a href="https://github.com/alikhan-s" target="_blank" class="btn-link">
-        <img src="images/github-logo.png" alt="GitHub" class="icon"> GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/alikhan-serik-a32531376" target="_blank" class="btn-link">
-        <img src="images/linkedin-logo.png" alt="LinkedIn" class="icon"> LinkedIn
-      </a>
+    <div class="portfolio-grid">
+      <!-- Left: Projects -->
+      <div class="projects">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <h3>Real Estate Sales System    <span style="color: grey;">Feature</span></h3>
+          <p>
+            A web-based platform for managing property listings, clients, and sales 
+            processes. Built with <strong>Java</strong>, <strong>Spring Boot</strong>, 
+            and <strong>PostgreSQL</strong>, focusing on scalability and reliability.
+          </p>
+          <button>
+            View on GitHub <span style="color: grey;">(soon)</span>
+          </button>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            A minimalist, responsive portfolio showcasing my skills and projects. 
+            Developed using <strong>HTML</strong>, <strong>CSS (Flexbox & Grid)</strong>, 
+            and hosted on GitHub Pages.
+          </p>
+          <button onclick="window.open('https://github.com/alikhan-s/alikhan-s.github.io', '_blank')">
+            View on GitHub
+          </button>
+        </div>
+      </div>
+      <!-- Right: Sidebar Info -->
+      <aside class="portfolio-sidebar">
+        <h3>About Me</h3>
+        <p>
+          I am a Java Developer specializing in building robust backend systems
+          with <strong>Spring Framework</strong> and <strong>PostgreSQL</strong>.  
+          I enjoy solving complex problems and designing scalable applications.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/alikhan-s" target="_blank" class="btn-link">
+            <img src="images/github-logo.png" alt="GitHub" class="icon"> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/alikhan-serik-a32531376" target="_blank" class="btn-link">
+            <img src="images/linkedin-logo.png" alt="LinkedIn" class="icon"> LinkedIn
+          </a>
+          <a href="https://www.instagram.com/uk1yo_6" target="_blank" class="btn-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" class="icon"> Instagram
+          </a>
+        </div>
+        </aside>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer id="footer-container">
-    <p class="paragraph-text">&copy; 2025 Alikhan. Built with HTML & CSS.</p>
-  </footer>
+    <footer class="portfolio-footer">
+      <p>&copy; 2025 My Portfolio. Built with Flexbox & Grid.</p>
+    </footer>
+  </section>
 
 </body>
 </html>
