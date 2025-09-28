@@ -312,6 +312,10 @@ section {
 
 /* ================= RESPONSIVENESS ================= */
 @media (max-width: 768px) {
+  .nav-list {
+    gap: 1rem;
+  }
+
   .card-container {
     flex-direction: column;
     align-items: center;
