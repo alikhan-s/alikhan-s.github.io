@@ -9,7 +9,11 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* ================= TEXT SECTION ================= */
+#main {
+  min-height: 400px;
+}
+
+/* ===================== TEXT SECTION ===================== */
 .text-section h1 {
   font-size: 2.8rem;
   font-weight: 800;
@@ -41,7 +45,7 @@ section {
   background: #a78bfa;
 }
 
-/* ================= MEDIA QUERIES ================= */
+/* ===================== MEDIA QUERIES ===================== */
 @media (max-width: 992px) {
   .text-section h1 {
     font-size: 2.2rem;
@@ -77,7 +81,7 @@ section {
   }
 }
 
-/* ================= PORTFOLIO ================= */
+/* ======================== PORTFOLIO ======================== */
 .card {
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -90,4 +94,5 @@ section {
 
 footer {
   font-size: 0.95rem;
+  
 }
