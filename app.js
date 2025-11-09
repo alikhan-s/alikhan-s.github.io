@@ -42,22 +42,18 @@ $(document).ready(function() {
         // Function to check whether an element is visible on the screen
         function isElementInView(element) {
             var rect = element[0].getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
+            var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+            
+            return (rect.top <= windowHeight - 50);
         }
 
         // Function for animating cards
         function animateSkills() {
             $('.skill-card-item').each(function(index) {
-                // 'this' - this is the current DOM element .skill-card-item
-                var $this = $(this); 
+                var $this = $(this);
                 
-                // We check whether it is visible.
-                if (isElementInView($this)) {
+                if ($this.css('opacity') === '0' && isElementInView($this)) {
+
                     $this.delay(index * 100).css({
                         'opacity': 1,
                         'transform': 'translateY(0)'
