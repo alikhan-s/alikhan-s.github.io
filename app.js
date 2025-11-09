@@ -67,7 +67,6 @@ $(document).ready(function() {
     // We check if '#projectModal' exists before running
     if ($('#projectModal').length > 0) {
         
-        var projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
         var $modalElement = $('#projectModal');
         var $modalContent = $modalElement.find('.modal-content');
         var $modalTitle = $modalElement.find('.modal-title');
