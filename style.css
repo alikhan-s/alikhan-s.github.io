@@ -1,0 +1,435 @@
+/*
+ * ================================
+ * GLOBAL VARIABLES
+ * ================================
+ */
+:root {
+    /* Fonts */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* Accent Color */
+    --accent-color: #6f42c1; /* Our chosen Purple */
+    --accent-color-hover: #59359a;
+
+    /* Light Mode (Default) */
+    --bg-color: #FFFFFF;
+    --text-color: #212529;
+    --bg-secondary: #F8F9FA;
+    --border-color: #dee2e6;
+}
+
+/*
+ * ================================
+ * DARK MODE VARIABLES
+ * ================================
+ */
+body.dark-mode {
+    --bg-color: #1a1a1a; /* Dark background */
+    --text-color: #F8F9FA; /* Light text */
+    --bg-secondary: #2a2a2a; /* Slightly lighter dark */
+    --border-color: #444;
+}
+
+/*
+ * ================================
+ * GENERAL STYLES
+ * ================================
+ */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+main {
+    padding-top: 70px; /* Offset for the fixed navbar */
+}
+
+/*
+ * ================================
+ * HEADER / NAVBAR
+ * ================================
+ */
+.navbar {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--accent-color) !important;
+}
+
+.navbar-brand .brand-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: var(--border-color);
+}
+
+/* For Light Theme */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3svg%3e");
+}
+
+/* For Dark Theme */
+body.dark-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3svg%3e");
+}
+
+/*
+ * ================================
+ * THEME SWITCHER
+ * ================================
+ */
+.theme-switcher {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.theme-switcher:hover {
+    color: var(--accent-color);
+}
+
+/*
+ * ================================
+ * BUTTONS (Global)
+ * ================================
+ */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background-color: var(--accent-color-hover);
+    border-color: var(--accent-color-hover);
+}
+
+.btn-outline-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+.btn-outline-secondary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+body.dark-mode .btn-outline-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+body.dark-mode .btn-outline-secondary:hover {
+    color: var(--bg-color); /* White button text on a dark background */
+}
+
+
+/*
+ * ================================
+ * SECTION: HERO
+ * ================================
+ */
+#hero {
+    min-height: 90vh; /* Takes up almost the entire screen */
+    background-color: var(--bg-secondary);
+    padding: 60px 0;
+}
+
+#hero h1 {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+#hero h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.hero-img-container {
+    text-align: center;
+}
+.hero-img-container img {
+    max-width: 80%;
+    animation: pulse 5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Адаптивность для Hero */
+@media (max-width: 991px) {
+    #hero {
+        min-height: auto;
+        padding-top: 40px;
+        text-align: center;
+    }
+    .hero-img-container img {
+        max-width: 300px;
+        margin-top: 30px;
+    }
+}
+
+
+/*
+ * ================================
+ * SECTION: SKILLS
+ * ================================
+ */
+#skills {
+    background-color: var(--bg-color);
+}
+
+.skill-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.skill-card i {
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+body.dark-mode .skill-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.skill-card:hover i {
+    transform: scale(1.1);
+}
+
+/* For jQuery */
+.skill-card-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/*
+ * ================================
+ * PAGE: PROJECTS
+ * ================================
+ */
+#projects {
+    background-color: var(--bg-color);
+}
+
+.project-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.project-card .project-image {
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    object-fit: cover; /* Fill the space, crop if needed */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.project-card .card-title {
+    color: var(--accent-color);
+}
+
+.project-card .card-text {
+    color: var(--text-color);
+}
+
+
+/*
+ * ================================
+ * COMPONENT: GLASSMORPHISM MODAL
+ * ================================
+ */
+
+/* 1. Make the backdrop darker and blurrier */
+.modal-backdrop.show {
+    opacity: 0.7;
+    backdrop-filter: blur(3px);
+}
+
+/* 2. Make the outer .modal-content wrapper FULLY transparent */
+.modal-content {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+    /* IMPORTANT: jQuery will inject the background image here */
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden; /* Clips the corners for .modal-content-glass */
+}
+
+/* 3. The "X" (Close) Button */
+.modal-header {
+    border-bottom: none;
+}
+.btn-close {
+    /* Make the "X" white, as the background will be dark (from the image) */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}
+
+/* 4. THE GLASS EFFECT (Light Theme) */
+.modal-content-glass {
+    height: 100%;
+    width: 100%;
+    /* Light semi-transparent "glass" */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px; /* Must match .modal-content */
+    color: #fff; /* Make all text inside white */
+}
+
+/* 5. Make header/footer "glassy" too */
+.modal-content-glass .modal-header,
+.modal-content-glass .modal-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    border-top: none;
+}
+
+.modal-content-glass .modal-title {
+    color: #fff;
+    font-family: var(--font-heading);
+}
+
+/* 6. Dark Mode adaptation */
+body.dark-mode .modal-content-glass {
+    /* Dark semi-transparent "glass" */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 7. Button styling inside the "glass" */
+.modal-content-glass .btn-outline-secondary {
+    color: #fff;
+    border-color: #fff;
+}
+.modal-content-glass .btn-outline-secondary:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/*
+ * ================================
+ * PAGE: CONTACT
+ * ================================
+ */
+#contact {
+    background-color: var(--bg-color);
+}
+
+/* Style for the input fields */
+.form-control {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+    box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25); /* Purple shadow */
+}
+
+/* Dark mode placeholder text */
+body.dark-mode .form-control::placeholder {
+    color: #888;
+}
+
+/* Contact Info Box */
+.contact-info-box {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.contact-info-box i {
+    color: var(--accent-color);
+}
+
+.contact-info-box a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.contact-info-box a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Bootstrap validation styles */
+.form-control.is-invalid {
+    border-color: #dc3545; /* Bootstrap danger color */
+    background-image: none; /* Hide default icon */
+}
+.form-control.is-valid {
+    border-color: #198754; /* Bootstrap success color */
+    background-image: none; /* Hide default icon */
+}
+.invalid-feedback {
+    color: #dc3545;
+}
+
+/*
+ * ================================
+ * FOOTER
+ * ================================
+ */
+footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
