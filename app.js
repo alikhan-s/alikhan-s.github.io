@@ -37,4 +37,41 @@ $(document).ready(function() {
 
     // --- END OF THEME SWITCHER LOGIC ---
 
+    // --- JQUERY: SMOOTH DEVELOPMENT OF SKILLS (FADE-IN) ---
+
+        // Function to check whether an element is visible on the screen
+        function isElementInView(element) {
+            var rect = element[0].getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function for animating cards
+        function animateSkills() {
+            $('.skill-card-item').each(function(index) {
+                // 'this' - this is the current DOM element .skill-card-item
+                var $this = $(this); 
+                
+                // We check whether it is visible.
+                if (isElementInView($this)) {
+                    $this.delay(index * 100).css({
+                        'opacity': 1,
+                        'transform': 'translateY(0)'
+                    });
+                }
+            });
+        }
+
+        // Call the function when the page loads and when scrolling
+        animateSkills(); // First run
+        $(window).on('scroll', function() {
+            animateSkills(); // Check
+        });
+
+    // --- THE END OF LOGIC FADE-IN ---
+
 });

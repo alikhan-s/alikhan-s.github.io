@@ -119,6 +119,132 @@ body.dark-mode .navbar-toggler-icon {
 
 /*
  * ================================
+ * BUTTONS (Global)
+ * ================================
+ */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background-color: var(--accent-color-hover);
+    border-color: var(--accent-color-hover);
+}
+
+.btn-outline-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+.btn-outline-secondary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+body.dark-mode .btn-outline-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+body.dark-mode .btn-outline-secondary:hover {
+    color: var(--bg-color); /* White button text on a dark background */
+}
+
+
+/*
+ * ================================
+ * SECTION: HERO
+ * ================================
+ */
+#hero {
+    min-height: 90vh; /* Takes up almost the entire screen */
+    background-color: var(--bg-secondary);
+    padding: 60px 0;
+}
+
+#hero h1 {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+#hero h2 {
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.hero-img-container {
+    text-align: center;
+}
+.hero-img-container img {
+    max-width: 80%;
+    animation: pulse 5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Адаптивность для Hero */
+@media (max-width: 991px) {
+    #hero {
+        min-height: auto;
+        padding-top: 40px;
+        text-align: center;
+    }
+    .hero-img-container img {
+        max-width: 300px;
+        margin-top: 30px;
+    }
+}
+
+
+/*
+ * ================================
+ * SECTION: SKILLS
+ * ================================
+ */
+#skills {
+    background-color: var(--bg-color);
+}
+
+.skill-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.skill-card i {
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+body.dark-mode .skill-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.skill-card:hover i {
+    transform: scale(1.1);
+}
+
+/* For jQuery */
+.skill-card-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/*
+ * ================================
  * FOOTER
  * ================================
  */
