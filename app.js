@@ -70,4 +70,39 @@ $(document).ready(function() {
 
     // --- THE END OF LOGIC FADE-IN ---
 
+    // --- JQUERY: PROJECT MODAL LOGIC (GLASSMORPHISM) ---
+
+        // Find our modal (Bootstrap object)
+        var projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+        
+        // Find the elements inside the modal we need to change
+        var $modalElement = $('#projectModal');
+        var $modalContent = $modalElement.find('.modal-content'); // The outer wrapper (for the background)
+        var $modalTitle = $modalElement.find('.modal-title');
+        var $modalBody = $modalElement.find('.modal-body');
+
+        // Listen for a click on ANY button that should open this modal
+        $('[data-bs-target="#projectModal"]').on('click', function() {
+            // 'this' is the button that was clicked
+            var $button = $(this);
+            
+            // 1. Get the data from the button's 'data-*' attributes
+            var title = $button.data('title');
+            var imageUrl = $button.data('image');
+
+            // 2. Get the full description HTML from the .project-full-description
+            // (We search for it *inside* the same card the button is in)
+            var $card = $button.closest('.card');
+            var fullDescriptionHtml = $card.find('.project-full-description').html();
+
+            // 3. Dynamically inject the data into the modal
+            $modalTitle.text(title);
+            $modalBody.html(fullDescriptionHtml);
+            
+            // 4. THE MOST IMPORTANT PART: Set the background for the glassmorphism effect
+            $modalContent.css('background-image', 'url(' + imageUrl + ')');
+        });
+
+    // --- END OF MODAL LOGIC ---
+
 });

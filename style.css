@@ -80,6 +80,7 @@ main {
 .nav-link {
     font-family: var(--font-heading);
     font-weight: 600;
+    color: var(--text-color);
 }
 
 .nav-link.active,
@@ -241,6 +242,121 @@ body.dark-mode .skill-card:hover {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/*
+ * ================================
+ * PAGE: PROJECTS
+ * ================================
+ */
+#projects {
+    background-color: var(--bg-color);
+}
+
+.project-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.project-card .project-image {
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    object-fit: cover; /* Fill the space, crop if needed */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.project-card .card-title {
+    color: var(--accent-color);
+}
+
+.project-card .card-text {
+    color: var(--text-color);
+}
+
+
+/*
+ * ================================
+ * COMPONENT: GLASSMORPHISM MODAL
+ * ================================
+ */
+
+/* 1. Make the backdrop darker and blurrier */
+.modal-backdrop.show {
+    opacity: 0.7;
+    backdrop-filter: blur(3px);
+}
+
+/* 2. Make the outer .modal-content wrapper FULLY transparent */
+.modal-content {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+    /* IMPORTANT: jQuery will inject the background image here */
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden; /* Clips the corners for .modal-content-glass */
+}
+
+/* 3. The "X" (Close) Button */
+.modal-header {
+    border-bottom: none;
+}
+.btn-close {
+    /* Make the "X" white, as the background will be dark (from the image) */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}
+
+/* 4. THE GLASS EFFECT (Light Theme) */
+.modal-content-glass {
+    height: 100%;
+    width: 100%;
+    /* Light semi-transparent "glass" */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px; /* Must match .modal-content */
+    color: #fff; /* Make all text inside white */
+}
+
+/* 5. Make header/footer "glassy" too */
+.modal-content-glass .modal-header,
+.modal-content-glass .modal-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+    border-top: none;
+}
+
+.modal-content-glass .modal-title {
+    color: #fff;
+    font-family: var(--font-heading);
+}
+
+/* 6. Dark Mode adaptation */
+body.dark-mode .modal-content-glass {
+    /* Dark semi-transparent "glass" */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 7. Button styling inside the "glass" */
+.modal-content-glass .btn-outline-secondary {
+    color: #fff;
+    border-color: #fff;
+}
+.modal-content-glass .btn-outline-secondary:hover {
+    background-color: #fff;
+    color: #000;
 }
 
 /*
