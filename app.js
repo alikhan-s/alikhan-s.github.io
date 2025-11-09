@@ -2,11 +2,10 @@
 $(document).ready(function() {
 
     // --- THEME SWITCHER LOGIC ---
-
+    // (This is global, it runs on every page)
     const themeToggle = $('#theme-toggle');
     const body = $('body');
 
-    // Function to apply the saved theme on page load
     function applySavedTheme() {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
@@ -17,15 +16,10 @@ $(document).ready(function() {
             themeToggle.removeClass('bi-sun-fill').addClass('bi-moon-fill');
         }
     }
-
-    // Apply the theme when the page loads
     applySavedTheme();
 
-    // Click event handler for the theme toggle button
     themeToggle.on('click', function() {
         body.toggleClass('dark-mode');
-
-        // Save the new theme preference to localStorage
         if (body.hasClass('dark-mode')) {
             localStorage.setItem('theme', 'dark');
             themeToggle.removeClass('bi-moon-fill').addClass('bi-sun-fill');
@@ -34,26 +28,24 @@ $(document).ready(function() {
             themeToggle.removeClass('bi-sun-fill').addClass('bi-moon-fill');
         }
     });
-
     // --- END OF THEME SWITCHER LOGIC ---
 
-    // --- JQUERY: SMOOTH DEVELOPMENT OF SKILLS (FADE-IN) ---
 
-        // Function to check whether an element is visible on the screen
+    
+    // --- JQUERY: SKILLS FADE-IN (ONLY FOR HOME PAGE) ---
+    // We check if '.skill-card-item' exists before running
+    if ($('.skill-card-item').length > 0) {
+        
         function isElementInView(element) {
             var rect = element[0].getBoundingClientRect();
             var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-            
             return (rect.top <= windowHeight - 50);
         }
 
-        // Function for animating cards
         function animateSkills() {
             $('.skill-card-item').each(function(index) {
                 var $this = $(this);
-                
                 if ($this.css('opacity') === '0' && isElementInView($this)) {
-
                     $this.delay(index * 100).css({
                         'opacity': 1,
                         'transform': 'translateY(0)'
@@ -61,48 +53,122 @@ $(document).ready(function() {
                 }
             });
         }
-
-        // Call the function when the page loads and when scrolling
-        animateSkills(); // First run
-        $(window).on('scroll', function() {
-            animateSkills(); // Check
-        });
-
-    // --- THE END OF LOGIC FADE-IN ---
-
-    // --- JQUERY: PROJECT MODAL LOGIC (GLASSMORPHISM) ---
-
-        // Find our modal (Bootstrap object)
-        var projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
         
-        // Find the elements inside the modal we need to change
+        animateSkills();
+        $(window).on('scroll', function() {
+            animateSkills();
+        });
+    }
+    // --- END OF FADE-IN LOGIC ---
+
+
+
+    // --- JQUERY: PROJECT MODAL LOGIC (ONLY FOR PROJECTS PAGE) ---
+    // We check if '#projectModal' exists before running
+    if ($('#projectModal').length > 0) {
+        
+        var projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
         var $modalElement = $('#projectModal');
-        var $modalContent = $modalElement.find('.modal-content'); // The outer wrapper (for the background)
+        var $modalContent = $modalElement.find('.modal-content');
         var $modalTitle = $modalElement.find('.modal-title');
         var $modalBody = $modalElement.find('.modal-body');
 
-        // Listen for a click on ANY button that should open this modal
         $('[data-bs-target="#projectModal"]').on('click', function() {
-            // 'this' is the button that was clicked
             var $button = $(this);
-            
-            // 1. Get the data from the button's 'data-*' attributes
             var title = $button.data('title');
             var imageUrl = $button.data('image');
-
-            // 2. Get the full description HTML from the .project-full-description
-            // (We search for it *inside* the same card the button is in)
             var $card = $button.closest('.card');
             var fullDescriptionHtml = $card.find('.project-full-description').html();
 
-            // 3. Dynamically inject the data into the modal
             $modalTitle.text(title);
             $modalBody.html(fullDescriptionHtml);
-            
-            // 4. THE MOST IMPORTANT PART: Set the background for the glassmorphism effect
             $modalContent.css('background-image', 'url(' + imageUrl + ')');
         });
-
+    }
     // --- END OF MODAL LOGIC ---
+
+
+
+    // --- JQUERY: FORM VALIDATION LOGIC (ONLY FOR CONTACT PAGE) ---
+    // We check if '#contactForm' exists before running
+    if ($('#contactForm').length > 0) {
+        
+        const $contactForm = $('#contactForm');
+        const $name = $('#name');
+        const $email = $('#email');
+        const $message = $('#message');
+        const $formMessage = $('#form-message');
+
+        function setError($input, message) {
+            const $feedback = $input.siblings('.invalid-feedback');
+            $feedback.text(message);
+            $input.removeClass('is-valid').addClass('is-invalid');
+        }
+
+        function setSuccess($input) {
+            $input.removeClass('is-invalid').addClass('is-valid');
+        }
+
+        function isValidEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function showAlert(message, type) {
+            var alertHTML = `
+                <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            $formMessage.html(alertHTML);
+        }
+
+        function validateForm() {
+            let isValid = true;
+            const nameValue = $name.val().trim();
+            const emailValue = $email.val().trim();
+            const messageValue = $message.val().trim();
+
+            if (nameValue === '') {
+                setError($name, 'Please enter your name.');
+                isValid = false;
+            } else {
+                setSuccess($name);
+            }
+
+            if (emailValue === '') {
+                setError($email, 'Please enter your email.');
+                isValid = false;
+            } else if (!isValidEmail(emailValue)) {
+                setError($email, 'Please enter a valid email address.');
+                isValid = false;
+            } else {
+                setSuccess($email);
+            }
+
+            if (messageValue === '') {
+                setError($message, 'Please enter a message.');
+                isValid = false;
+            } else {
+                setSuccess($message);
+            }
+            
+            return isValid;
+        }
+
+        $contactForm.on('submit', function(event) {
+            event.preventDefault(); 
+            
+            if (validateForm()) {
+                showAlert('Thank you! Your message has been sent (simulation).', 'success');
+                $contactForm[0].reset();
+                $('.form-control').removeClass('is-valid is-invalid');
+            } else {
+                showAlert('Please correct the errors in the form.', 'danger');
+            }
+        });
+    }
+    // --- END OF FORM VALIDATION LOGIC ---
 
 });

@@ -361,6 +361,69 @@ body.dark-mode .modal-content-glass {
 
 /*
  * ================================
+ * PAGE: CONTACT
+ * ================================
+ */
+#contact {
+    background-color: var(--bg-color);
+}
+
+/* Style for the input fields */
+.form-control {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+    background-color: var(--bg-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+    box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25); /* Purple shadow */
+}
+
+/* Dark mode placeholder text */
+body.dark-mode .form-control::placeholder {
+    color: #888;
+}
+
+/* Contact Info Box */
+.contact-info-box {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    height: 100%;
+}
+
+.contact-info-box i {
+    color: var(--accent-color);
+}
+
+.contact-info-box a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.contact-info-box a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Bootstrap validation styles */
+.form-control.is-invalid {
+    border-color: #dc3545; /* Bootstrap danger color */
+    background-image: none; /* Hide default icon */
+}
+.form-control.is-valid {
+    border-color: #198754; /* Bootstrap success color */
+    background-image: none; /* Hide default icon */
+}
+.invalid-feedback {
+    color: #dc3545;
+}
+
+/*
+ * ================================
  * FOOTER
  * ================================
  */
