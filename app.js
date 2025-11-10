@@ -72,6 +72,17 @@ $(document).ready(function() {
         var $modalTitle = $modalElement.find('.modal-title');
         var $modalBody = $modalElement.find('.modal-body');
 
+        $('.project-card').on('click', function(event) {
+        
+        if (!$(event.target).closest('button').length) {
+            const repoUrl = $(this).data('repo-url');
+            
+            if (repoUrl) {
+                window.open(repoUrl, '_blank');
+            }
+        }
+    });
+
         $('[data-bs-target="#projectModal"]').on('click', function() {
             var $button = $(this);
             var title = $button.data('title');
